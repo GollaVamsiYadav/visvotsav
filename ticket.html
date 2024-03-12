@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Visvotsav Reg form</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+</head>
+
+<body>
+    <div class="tnqcar d-none flex-wrap justify-content-center  align-items-center  position-fixed " id="carder">
+        <div class="card"> 
+            <div class="header"> 
+                 <div class="image">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20 7L9.00004 18L3.99994 13" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                </div> 
+                <div class="content">
+                    <span class="title">Registration submited</span> 
+                    <p class="message">Thank you for registering to event feel free to ask any doubts by clicking contact button</p> 
+                </div> 
+                <div class="actions">
+                  <button class="history" id="contact"type="button" onclick="location.href = 'index.html#section_5';">Contact</button> 
+                  <button class="track" id="home"type="button"  onclick="location.href = 'index.html';">Go to home</button> 
+                </div> 
+            </div> 
+        </div>
+    </div>
+    
+    <div class="loaderin d-none flex-wrap justify-content-center align-content-center align-items-center  position-fixed bg-black " id="preload">
+        
+        
+
+        <div class="typewriter">
+            <div class="slide"><i></i></div>
+            <div class="paper"></div>
+            <div class="keyboard"></div>
+            <div class="p-3"><h6 class="text-white " id="texter">Submiting</h6></div>
+       
+        </div>
+        <div id="cand" class="mb-5" hidden>
+            <canvas id="canvas" class="canvasd"></canvas> 
+        </div> 
+       
+    </div>
+   
+    <main>
+
+        <header class="site-header">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-12 d-flex flex-wrap">
+                        <p class="d-flex me-4 mb-0">
+                          
+                            <strong class="text-white">Welcome to Visvotsav 2023</strong>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    Visvotsav
+                </a>
+                
+                <a href="ticket.html" class="btn custom-btn d-lg-none ms-auto me-4">Register Here</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="index.html#section_1">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="index.html#section_2">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="index.html#section_3">Schedule</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="index.html#section_4">Pricing</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="index.html#section_5">Contact</a>
+                        </li>
+                    </ul>
+
+                    <a href="ticket.html" class="btn custom-btn d-lg-block d-none">Register Here</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <section class="ticket-section section-padding">
+            <div class="section-overlay"></div>
+
+            <div class="container">
+                <div class="row">
+                    <div id="success-msg"></div>
+                    <div class="col-lg-6 col-10 mx-auto">
+                        <form class="custom-form ticket-form mb-5 mb-lg-0" method="POST" name="ticket-form" role="form" id="ticket-form">
+                            <h2 class="text-center mb-4">Registration here</h2>
+
+                            <div class="ticket-form-body">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <input type="text" name="Name" id="ticket-form-name"
+                                            class="form-control" placeholder="Full name">
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <input type="email" name="Email" id="ticket-form-email"
+                                            pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address"
+                                            >
+                                    </div>
+                                </div>
+
+                                <input type="tel" class="form-control" name="Phone"
+                                    placeholder="Enter Phone number" pattern="[0-9]{10}" id="ticket-form-phone" required="">
+                                    <h6 id="dutitle">Enter Your DU Number</h6>
+                                    <div id="duinp">
+                                        <a href="https://onlinesbi.sbi/sbicollect/" target="_blank">click here pay in sbi collect</a>
+                                        <input type="password" name="DUNumbermain" id="ticket-form-dunumber"
+                                         class="form-control" placeholder="Enter DU Number"
+                                        required>
+                                        <h6 id="dutitle">Confirm DU Number</h6>
+                                        
+                                        <input type="text" name="DUNumber" id="ticket-form-dunumberconfirm"
+                                        pattern="[Dd][u-vU-V][a-zA-Z]{1}[0-9]{7}" class="form-control error-msg" placeholder="Confirm DU Number"
+                                        required>
+                                        <h6>What is your college</h6>
+
+                                        <select type="search" class="form-control" name="College" id="ticket-form-college" >
+                                            
+                                           <option selected hidden disabled value="Select">Select</option>
+                                            <option value="PBR VITS">PBR Visvodaya Institute of Technology and Science</option>
+                                            <option value="VEC">Visvodaya Enginnering College</option>
+                                            <option value="RSR">Ramireddy Subbarami Reddy Enginnering College</option>
+                                            <option value="DBS">Damisetty Bala Suresh Engineering College</option>
+                                            <option value="Narayana Nellore">Narayana Enginnering College, Nellore</option>
+                                            <option value="Geetanjali Nellore">Geethanjali Institute of technology and science</option>
+                                            <option value="priyadarshi nellore">Priyadarshi College of Engineering</option>
+                                            <option value="SVCN">Sree Venkateswara College of Engineering</option>
+                                            <option value="Other">Other</option>
+                   
+                                               
+                                        </select>
+                                        <div id="college-container"></div>
+                                    </div>
+                            <div class="options">
+                                        <h6>What is your Branch</h6>
+
+                                         <select  class="form-control" name="Branch" id="ticket-form-branch" >
+                                             
+                                            <option selected hidden disabled value="Select">Select</option>
+                                             <option value="ECE">ECE</option>
+                                             <option value="CSE">CSE</option>
+                                             <option value="CSE-IOT">CSE-IOT</option>
+                                             <option value="CSE-IOT">CSE-AI</option>
+                                             <option value="CSE-IOT">CSE-ML</option>
+                                             <option value="EEE">EEE</option>
+                                             <option value="CIVIL">CIVIL</option>
+                                             <option value="ME">ME</option>
+                                             <option value="MBA">MBA</option>
+                    
+                                                
+                                         </select>
+                                             
+                                          
+                                       
+                                         <h6>Choose event to participate</h6>
+
+                        
+                                 
+                                        <select  class="form-control" onchange="generateRadios();" id="ticket-form-event" name="Event">
+                                            
+                                            <option selected hidden disabled value="Select">Select</option>
+                                            <option value="Paper Presentation" >Paper Presentation</option>
+                                            <option value="Poster Presentation" >Poster Presentation</option>
+                                            <option value="Technical Quiz" >Techincal Quiz </option>
+                                            <option value="Project Expo" >Project Expo</option>
+                                            <option value="Circuitrix" >Circuitrix</option>
+                                            <option value="Coding" >Coding</option>
+                                 
+                                        </select>
+                               
+                                        
+                                <h6 id="heading-team" hidden>Number of Team Members</h6>
+                               
+                                <div class="team-options" id="team-options">
+                                   
+                               
+                                </div>
+                               
+                                <div id="input-container" ></div> 
+                            </div>   
+                           
+                            
+                            <div class="bottom-section d-flex justify-content-center align-items-center flex-column">
+                                <label class="text-danger" id="error-msg" hidden>du number not matched</label>
+                                <div class="col-lg-4 col-md-10 col-8 mx-auto">
+                                   
+                                    <button type="submit" class="form-control "href="loading.html" id="registerbtn">Register</button>
+                                </div>
+                               
+                            </div>
+                           
+                         </div>
+                        </form>
+                     
+                    </div>
+                    
+                </div>
+                
+        </section>
+    </main>
+
+  <!-- bottom part of footer   -->
+    
+  <footer class="site-footer">
+        
+    <div class="site-footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-12">
+                    <h2 class="text-white mb-lg-0">Visvotsav</h2>
+                </div>
+
+                <div class="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
+                    <ul class="social-icon d-flex justify-content-lg-end">
+                        <li class="social-icon-item">
+                            <a href="https://twitter.com/visvotsav2k23"target="_blank"  class="social-icon-link">
+                                <span class="bi-twitter"></span>
+                            </a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="https://www.facebook.com/pbrvitsofficial/"target="_blank"  class="social-icon-link">
+                                <span class="bi-facebook"></span>
+                            </a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="https://instagram.com/visvotsav_2k23?igshid=YmMyMTA2M2Y=" target="_blank"   class="social-icon-link">
+                                <span class="bi-instagram"></span>
+                            </a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="https://www.youtube.com/@visvotsav2k23"target="_blank"  class="social-icon-link">
+                                <span class="bi-youtube"></span>
+                            </a>
+                        </li>
+
+                  
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container  ">
+        <div class="d-flex flex-warp ">
+              <div class="row  ">
+
+                    <div class="col-lg-6 col-12 mb-4 pb-2">
+                    
+                        <h5 class="site-footer-title mb-3">Contact Numbers</h5>
+                        <div class="sub-sec">
+                        <div class="d-flex flex-warp  flex-column">
+                            <div class="sub-section1 " id="sub-section1" >
+                                <div class="head1"><a class="site-footer-link text-warning" >
+                                    Patrons
+                                  </a>
+                                </div>
+                                <div id="matter1"  >   
+                                    <p class="text-white d-flex mt-3 mb-2"> Dr.B.Dattatraya Sarma,Principal PBR VITS</p>
+                                    <p class="text-white d-flex mt-3 mb-2">Dr Suresh, Principal, VEC</p>
+                                 </div>             
+                         </div>
+
+                         <div class="sub-section1 " id="sub-section1" >
+                            <div class="head1"><a class="site-footer-link text-warning" >
+                                Conveners
+                              </a>
+                            </div>
+                            <div id="matter1"  >   
+                                <p class="text-white d-flex mt-3 mb-2"> Dr. V.V Sunil Kumar, Vice-Principal, PBR VITS</p>
+                                <p class="text-white d-flex mt-3 mb-2">Mr. N. Srinadh Reddy, Vice-Principal, VEC </p>
+                             </div>             
+                     </div>         
+                     
+                     <div class="sub-section1 " id="sub-section1" >
+                        <div class="head1"><a class="site-footer-link text-warning" >
+                            Co- Conveners
+                          </a>
+                        </div>
+                        <div id="matter1"  >   
+                            <p class="text-white d-flex mt-3 mb-2"> Dr.Md Hayath Rajvee Professor, ECE</p>
+                            <p class="text-white d-flex mt-3 mb-2"> Mr.N.C Krishna Prasad, Asst.Professor, ME</p>
+                         </div>             
+                 </div>          
+                
+
+                            <div class="sub-section3" id="sub-section3" >
+                                <div class="head1"><a class="site-footer-link text-warning" >
+                                    Student- Cordinators
+                                </a>
+                                </div>
+                                <div  id="matter3" >
+                                    <p class="text-white d-flex mt-3 mb-2"> Mr CH. Vijay Kumar  :<a href="tel: 6301009622" class="site-footer-link">6301009622</a>    -CIVIL</p>
+                                    <p class="text-white d-flex mt-3 mb-2" > Mr T. Praveen      :<a href="tel: 9959171042" class="site-footer-link">9959171042</a>    -EEE</p>
+                                    <p class="text-white d-flex mt-3 mb-2"> Mr P. Nagendra      :<a href="tel: 9346098969" class="site-footer-link">9346098969</a>    -MECH </p> 
+                                    <p class="text-white d-flex mt-3 mb-2"> Mr P. Sk. Azzarudin :<a href="tel: 6281919468" class="site-footer-link">6281919468</a>    -ECE</p>
+                                    <p class="text-white d-flex mt-3 mb-2"> Mr M. Naveen Kumar  :<a href="tel: 8074573756" class="site-footer-link">8074573756</a>    -CSE </p>
+                                    <p class="text-white d-flex mt-3 mb-2"> Mr G. Manish Rohit  :<a href="tel: 8106512130" class="site-footer-link">8106512130</a>    -AI,IOT & AIML </p>
+                                </div>
+                            </div>
+
+
+
+                            <div class="sub-section1" id="sub-section1" >
+                                <div class="head1"><a class="site-footer-link  text-warning" >
+                                    Staff- Cordinators
+                                </a>
+                                </div>
+                                <div  id="matter4" >
+                                    <p class="text-white d-flex mt-3 mb-2">Mr K.V Ashok Kumar  : <a href="tel: 7981050808" class="site-footer-link">
+                                        7981050808
+                                    </a>    -CIVIL </p>
+                                     <p class="text-white d-flex mt-3 mb-2" > Mr T. Haribabu      : <a href="tel: 9441852566" class="site-footer-link">
+                                        9441852566
+                                    </a>        -EEE </p>
+                                    <p class="text-white d-flex mt-3 mb-2"> Mr K.Manikantesh      : <a href="tel: 9948499991" class="site-footer-link">
+                                        9948499991
+                                    </a>        -MECH</p>
+                                     <p class="text-white d-flex mt-3 mb-2">Mr P. A. Venkareddy : <a href="tel: 9642512108" class="site-footer-link">
+                                        9642512108
+                                    </a>        -ECE </p>
+                                    <p class="text-white d-flex mt-3 mb-2">Mrs. Jabeena Shaik : <a href="tel: 8977762416" class="site-footer-link">
+                                        8977762416
+                                    </a>        -ECE </p>
+                                     <p class="text-white d-flex mt-3 mb-2"> Mr. P.Prasanth Kumar  : <a href="tel: 9701873865" class="site-footer-link">
+                                        9701873865
+                                    </a>        -CSE</p>
+                                    <p class="text-white d-flex mt-3 mb-2"> Mrs. CH. Jayalakshmi  : <a href="tel: 9177221518" class="site-footer-link">
+                                        9177221518
+                                    </a>        -CSE</p>
+                                </div>
+                        
+                             </div>
+                     </div>
+                    </div>
+    </div>
+                  <!-- mail amd and number section-->
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                   <h5 class="site-footer-title mb-3">Have a question?</h5>
+
+                    <p class="text-white d-flex mb-1">
+                    <a href="tel: +919876543210" class="site-footer-link">
+                        +91 9876543210
+                    </a>
+                    </p>
+
+                    <p class="text-white d-flex">
+                        <a href="mailto:yasovardhanmasani@gmail.com" class="site-footer-link">  
+                        visvotsav@visvotsav2k23.tech
+                        </a>
+                    </p>
+                </div>
+
+
+
+
+                <div class="col-lg-3 col-md-6 col-11 mb-4 mb-lg-0 mb-md-0">
+                    <h5 class="site-footer-title mb-3">Location</h5>
+
+                        <p class="text-white d-flex mt-3 mb-2"> near UdayaGiri road, kavali, Nellore Dist , Andhra Pradesh -524201 </p>
+                </div>
+           </div>
+    </div>
+
+
+    <div class="site-footer-bottom ">
+        <div class="container  d-flex flex-wrap flex-column justify-content-center align-items-center endln">
+            
+
+                <div class="end" >
+                    <p class="copyright-text">Created By Yasovardhan</p>
+                    <p class="copyright-text">Copyright © PBR VITS</p>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/registerform.js"></script>
+    <script src="js/thanksForSubmit.js"></script>
+    <script src="js/inputchange.js"></script>
+    <script src="js/partypoppers.js"></script>
+
+</body>
+
+</html>
+
